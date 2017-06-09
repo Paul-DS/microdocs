@@ -1,0 +1,19 @@
+{
+  "name": "microdocs",
+  "version": "0.1.0",
+  "description": "A lightweight server for hosting public/private docs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Paul-DS/microdocs.git"
+  },
+  "author": "Paul-DS",
+  "license": "GNU GPLv3",
+  "bugs": {
+    "url": "https://github.com/Paul-DS/microdocs/issues"
+  },
+  "homepage": "https://github.com/Paul-DS/microdocs#readme"
+}
