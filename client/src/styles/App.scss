@@ -1,0 +1,31 @@
+body {
+  font-family: 'Open sans';
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+button {
+  font-family: 'Open sans';
+  padding: 8px 10px;
+  font-size: 14px;
+  background-color: #2196f3;
+  color: white;
+  border: 0;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+button:hover {
+  background-color: #1e87d8;
+}
+
+input {
+  padding: 5px 8px;
+  font-family: 'Open sans';
+  font-size: 14px;
+}
+
+form {
+  margin: 0;
+}

@@ -1,0 +1,40 @@
+#login {
+  position: absolute;
+  width: 400px;
+  height: 205px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: white;
+  box-shadow: 0 0 49px 10px rgba(0, 0, 0, 0.05);
+  border: 1px solid #ccc;
+  padding: 30px;
+
+  .site-logo {
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+
+  .title {
+    float: right;
+    font-size: 26px;
+    font-weight: 100;
+    margin-top: -5px;
+  }
+
+  form {
+    text-align: center;
+  }
+
+  input {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  button {
+    margin-top: 10px;
+    width: 100px;
+  }
+}

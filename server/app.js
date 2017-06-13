@@ -10,8 +10,10 @@ var authenticationMiddleware = require('./middlewares/authentication');
 
 var app = express();
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(authenticationMiddleware.initialize());
+
+app.use(express.static(__dirname + '/../client/dist'));
 
 app.post('/login', (req, res) => {
   var username = req.body.username;
@@ -37,7 +39,35 @@ app.post('/login', (req, res) => {
       });
     })
     .catch(() => res.sendStatus(500));
-})
+});
+
+app.get('/userInfo', authenticationMiddleware.authenticate(), (req, res) => {
+  res.send(req.user);
+});
+
+app.get('/getFiles', authenticationMiddleware.authenticate(), (req, res) => {
+  var getFiles = function(currentPath) {
+    var files = [];
+
+    fs.readdirSync(currentPath).forEach(file => {
+      var filePath = path.join(currentPath, file);
+      var stat = fs.lstatSync(filePath);
+
+      if (stat.isDirectory()) {
+        files.push({ name: file, type: 'dir', files: getFiles(filePath) });
+      }
+      else if (file.toLowerCase().indexOf('.md') >= 0 && file != '-index.md') {
+        files.push({ name: file.slice(0, -3), type: 'file' });
+      }
+    });
+
+    var fileFilter = f => !(f.type == 'dir' && f.files.filter(fileFilter).length == 0);
+
+    return files.filter(fileFilter);
+  }
+
+  res.send(getFiles(config.docFolder));
+});
 
 app.get('/page/:path(*)', authenticationMiddleware.authenticate(), (req, res) => {
   var fileName = path.join(config.docFolder, req.params.path);
@@ -84,6 +114,10 @@ app.get('/img/:path(*)', (req, res) => {
 
     res.sendFile(fileName);
   });
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(__dirname + '/../client/dist/index.html');
 });
 
 app.listen(config.port);

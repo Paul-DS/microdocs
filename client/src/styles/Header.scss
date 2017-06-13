@@ -1,0 +1,21 @@
+#header-bar {
+  width: 100%;
+  height: 50px;
+  background-color: white;
+
+  .site-logo {
+    display: inline-block;
+    margin: 10px 5px;
+  }
+
+  .logoff {
+    float: right;
+    cursor: pointer;
+    line-height: 50px;
+    padding: 0 10px;
+
+    &:hover {
+      background-color: #eee;
+    }
+  }
+}
