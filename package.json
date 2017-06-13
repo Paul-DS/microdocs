@@ -15,5 +15,15 @@
   "bugs": {
     "url": "https://github.com/Paul-DS/microdocs/issues"
   },
-  "homepage": "https://github.com/Paul-DS/microdocs#readme"
+  "homepage": "https://github.com/Paul-DS/microdocs#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "jsonwebtoken": "^7.4.1",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1",
+    "showdown": "^1.7.1",
+    "sqlite3": "^3.1.8",
+    "uuid": "^3.0.1"
+  }
 }
