@@ -25,4 +25,4 @@ var strategy = new Strategy(params, module.exports.checkTokenData);
 passport.use(strategy);
 
 module.exports.initialize = () => passport.initialize();
-module.exports.authenticate = () => passport.authenticate("jwt", { session: false });
+module.exports.authenticate = () => config.authentication ? passport.authenticate("jwt", { session: false }) : (req, res, next) => { req.user = {}; next(); };

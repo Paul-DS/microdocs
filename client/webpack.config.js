@@ -31,7 +31,7 @@ var config = {
   },
   plugins: [
     new ExtractTextPlugin('[name].css'),
-    new CopyWebpackPlugin([{ from: './src/index.html' }])
+    new CopyWebpackPlugin([{ from: './src/index.html' }, { from: './src/config.html' }])
   ]
 };
 

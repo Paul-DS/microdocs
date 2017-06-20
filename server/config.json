@@ -1,9 +1,0 @@
-{
-  "port": 4567,
-  "initialized": true,
-  "database": {
-    "type": "embedded"
-  },
-  "docFolder": "docs",
-  "tokenKey": "hardcodedkeywaitingforthegeneration"
-}

@@ -11,12 +11,9 @@ export default class AccountService {
 
     if (AccountService.token) {
       axios.defaults.headers.common['Authorization'] = 'JWT ' + AccountService.token;
+    }
 
-      axios.get('/userInfo').then(result => callback(result.data)).catch(() => callback(null));
-    }
-    else {
-      callback(null);
-    }
+    axios.get('/userInfo').then(result => callback(result.data)).catch(() => callback(null));
   }
 
   static login(username, password, callback) {

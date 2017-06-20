@@ -1,0 +1,31 @@
+<html>
+  <head>
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  	<title>MicroDocs setup</title>
+  </head>
+  <body>
+    <div id="app">
+      Configure your server
+      <form method="post">
+        <div class="field">Port <input type="text" name="port" value="4567" /></div>
+        <div class="field">
+          Authentication
+          <select name="authentication">
+            <option value="none">None</option>
+            <option value="embedded">Embedded</option>
+          </select>
+        </div>
+        <div class="field">
+          Admin user <input type="text" name="rootUser" />
+        </div>
+        <div class="field">
+          Admin password <input type="password" name="rootPassword" />
+        </div>
+        <div class="field">
+          Docs folder <input type="text" name="docFolder" />
+        </div>
+        <input type="submit" value="Set up">
+      </form>
+    </div>
+  </body>
+</html>

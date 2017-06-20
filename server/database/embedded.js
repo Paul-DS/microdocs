@@ -14,16 +14,22 @@ module.exports.create = (username, password) => {
   var db = connect();
 
   return new Promise((resolve, reject) => {
-    db.run("CREATE TABLE users (id TEXT, username TEXT, password TEXT)", error => {
+    db.run("DROP TABLE IF EXISTS users", error => {
       if (error) {
         return reject(error);
       }
 
-      db.run("INSERT INTO users VALUES(?, ?, ?)", uuidV4(), username, crypto.createHash('sha256').update(password).digest('base64'), error => {
-        db.close();
+      db.run("CREATE TABLE users (id TEXT, username TEXT, password TEXT)", error => {
+        if (error) {
+          return reject(error);
+        }
 
-        if (error) reject(error);
-        else resolve();
+        db.run("INSERT INTO users VALUES(?, ?, ?)", uuidV4(), username, crypto.createHash('sha256').update(password).digest('base64'), error => {
+          db.close();
+
+          if (error) reject(error);
+          else resolve();
+        });
       });
     });
   });
